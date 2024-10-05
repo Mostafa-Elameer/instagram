@@ -29,7 +29,7 @@ export class StoriesComponent {
         items: 4
       },
       400: {
-        items: 6
+        items: 5
       },
       740: {
         items: 8
