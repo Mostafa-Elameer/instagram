@@ -1,0 +1,54 @@
+<nav class="bg-slate-100   py-1 fixed top-0 left-0 right-0 z-50 ">
+    <div class="flex justify-between text-black px-2 items-center">
+
+        <ul class="flex ms-auto  gap-x-2">
+            <li><i class="text-xl fa-regular fa-heart"></i></li>
+            <li><i class="text-xl fa-brands fa-facebook-messenger"></i></li>
+        </ul>
+    </div>
+</nav>
+
+<header class=" px-4 bg-slate-100 fixed bottom-0    left-0 right-0 md:hidden">
+    <div class="relative mx-auto flex max-w-screen-lg flex-col py-4 sm:flex-row sm:items-center sm:justify-between">
+        <ul class="flex items-center justify-between  text-2xl font-black" href="/">
+            <img class="w-8 hidden " src="./assets/imegs/iconsNav/instgram.svg" alt="">
+            <span class="px-2 hidden md:block"> instagram</span>
+            <ul class="flex gap-x-2 flex-grow  justify-evenly">
+                <li class="cursor-pointer" [routerLink]="['/home']"><img class="w-7 "
+                        src="./assets/imegs/iconsNav/3844435_home_house_icon.svg" alt="">
+                </li>
+                <li [routerLink]="['/search']" class="cursor-pointer"><img class="w-7 "
+                        src="./assets/imegs/iconsNav/211817_search_strong_icon.svg" alt="">
+                </li>
+
+
+                <li [routerLink]="['/createpost']" class=" cursor-pointer">
+                    <img class="w-7" src="./assets/imegs/iconsNav/1564491_add_create_new_plus_icon.svg" alt="">
+                </li>
+
+                <li class="cursor-pointer"><img class="w-7 "
+                        src="./assets/imegs/iconsNav/9054814_bx_movie_play_icon.svg" alt="">
+                </li>
+                <li [routerLink]="['/Profile',_userId.user]" class="cursor-pointer"><img class="w-7 "
+                        src="./assets/imegs/iconsNav/8665306_circle_user_icon.svg" alt="">
+                </li>
+            </ul>
+        </ul>
+
+        <input class="peer hidden" type="checkbox" id="navbar-open" />
+        <label class="hidden absolute right-0 mt-1 cursor-pointer text-xl sm:hidden" for="navbar-open">
+            <span class="sr-only">Toggle Navigation</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="0.88em" height="1em" preserveAspectRatio="xMidYMid meet"
+                viewBox="0 0 448 512">
+                <path fill="currentColor"
+                    d="M0 96c0-17.7 14.3-32 32-32h384c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zm0 160c0-17.7 14.3-32 32-32h384c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zm448 160c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32h384c17.7 0 32 14.3 32 32z" />
+            </svg>
+        </label>
+        <nav aria-label="Header Navigation" class="peer-checked:block hidden pl-2 py-6 sm:block sm:py-0">
+            <ul class="flex flex-col gap-y-4 sm:flex-row sm:gap-x-8">
+                <li class=""><a class="text-gray-600 hover:text-blue-600" href="#">Pricing</a></li>
+            </ul>
+        </nav>
+    </div>
+
+</header>

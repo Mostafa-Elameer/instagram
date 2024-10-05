@@ -1,0 +1,21 @@
+<div class="fixed bg-slate-100  right-0 top-0 bottom-0 w-[19rem] shadow-md  py-18 overflow-y-scroll ">
+
+
+    <p class="border-b  my-3 mt-12 font-medium ">Suggestions pour vous</p>
+
+    @for (item of userData; track $index) {
+    <div class="header-card flex justify-between  items-center shadow-sm px-3 rounded-sm hover:px-2 transition-all  ">
+        <div class="flex items-center ">
+            <img class="m-2 w-10 rounded-full" [src]="item.img" alt="">
+            <div class="flex flex-col justify-center ">
+                <p class="m-0 font-medium">{{item.name}}</p>
+                <p class="-mt-1">2 frinds fo..</p>
+            </div>
+        </div>
+        <i class=" px-2 font-bold text-blue-400">follow</i>
+    </div>
+
+
+    }
+
+</div>

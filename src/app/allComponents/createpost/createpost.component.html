@@ -1,0 +1,39 @@
+<section class="py-40 bg-slate-200">
+    <div class="flex justify-center items-center p-7 ">
+        <div class="w-full md:w-1/2 mx-auto rounded-xl  flex flex-col bg-white border shadow-lg  pointer-events-auto ">
+
+
+            <div class="p-2 bg-white rounded-lg shadow-sm">
+                <i (click)="Cancel()" class="cursor-pointer fa-solid fa-xmark   font-bold text-3xl text-red-600"></i>
+            </div>
+
+            <div class="py-3 border text-center">
+                <p class="font-medium">Creat New post</p>
+            </div>
+
+            <div>
+                <div class="flex flex-col gap-3 py-6">
+                    <div class="p-3 border rounded-lg ">
+                        <textarea [(ngModel)]="contintPost" class="w-full p-2 rounded-lg"
+                            placeholder="Whit's New ?"></textarea>
+                    </div>
+                    <div class="p-3 border rounded-lg ">
+                        <input (change)="imgName($event)" type="file" placeholder="umg">
+                    </div>
+
+                    <div class="text-center ">
+                        <button (click)="sendPostData()" class="btn" type="submit">post
+                            @if (isloding) {
+                            <i class="fa-solid fa-spinner fa-spin px-2"></i>
+                            }
+
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+</section>

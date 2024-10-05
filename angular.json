@@ -30,9 +30,14 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@fortawesome/fontawesome-free/css/all.min.css",
               "src/styles.scss"
             ],
-            "scripts": [],
+            "scripts": [
+              "node_modules/preline/preline.js",
+              "./node_modules/lodash/lodash.min.js",
+              "./node_modules/dropzone/dist/dropzone-min.js"
+            ],
             "server": "src/main.server.ts",
             "prerender": true,
             "ssr": {

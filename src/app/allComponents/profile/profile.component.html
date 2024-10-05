@@ -1,0 +1,80 @@
+@if(myposts){
+<section class="Profile flex  justify-center mt-1 z-7">
+    <div class="hidden md:block z-30">
+        <app-navpagelg></app-navpagelg>
+    </div>
+    <div class="header-profile  w-96 md:w-1/2 mx-auto my-18 py-10  p-4">
+
+        @if(_userData){
+        <div class="grid grid-cols-2  items-center shadow-sm border-b">
+            <div class="img ">
+                <img class="w-48 md:w-56 p-4  mx-auto rounded-full" [src]="_userData.photo" alt="">
+                <div class="p-1 grid grid-cols-12 px-2">
+                    <input (change)="imgName($event)" class="shadow-md col-span-12 md:col-span-6" type="file"
+                        placeholder="img">
+                    <button (click)="sendPostData()" class=" border-2 shadow bg-slate-100 rounded-lg col-span-12 md:col-span-6 "
+                        type="submit"><i class="fa-solid fa-upload text-2xl"></i>
+                    </button>
+                </div>
+
+
+            </div>
+            <div class="text ">
+                <p class="font-medium text-xl">{{_userData.name!}}</p>
+                <div class="flex gap-x-4 py-3">
+                    <p>2300 <span class="font-medium">Follwees</span></p>
+                    <p>150 <span class="font-medium">Follwing</span></p>
+                </div>
+                <p>MOSTAFA EL-AMERR</p>
+                <p>SOFTWARE ENGINEER</p>
+                <p>Front-End Developer</p>
+            </div>
+        </div>
+        }
+
+
+
+        <div class="grid  md:grid-cols-2 py-6 gap-2">
+            @for (item of myposts; track $index) {
+            <div class="shadow p-2 card">
+                <img class="w-96 rounded-lg" [src]="item.image" alt="">
+                <!-- interaction card -->
+                <div class="flex justify-between pt-2 px-2">
+                    <ul class="flex gap-x-3">
+                        <li><i class="text-2xl  fa-regular fa-heart hover:text-red-600 transition-all"></i></li>
+                        <li><i class="text-2xl  fa-regular fa-comment"></i></li>
+                        <li><i class="text-2xl  fa-brands fa-telegram"></i></li>
+                    </ul>
+
+                    <button class=" relative group z-10  ">
+                        <i class="fa-solid fa-ellipsis"></i>
+                        <div class="absolute hidden group-focus:block">
+                            <ul class="bg-slate-200  rounded-xl flex justify-start gap-3 border p-2
+                             flex-col items-center">
+                                <li class="flex justify-start">
+                                    <a class="flex items-center gap-x-1  hover:text-red-600"
+                                        (click)="Deletpost(item.id)">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a (click)="update(item.id)"
+                                        class="flex items-center gap-x-1 hover:text-orange-400">
+                                        <i class="fa-solid fa-pen "></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </button>
+                </div>
+                <p #show class="cursor-pointer py-1 text-slate-500">View all comments ? </p>
+                @defer (on interaction(show)) {
+                <app-postcomments [idPostComments]="item._id"></app-postcomments>
+                }
+                <app-createcomment [postid]="item._id"></app-createcomment>
+            </div>
+            }
+        </div>
+    </div>
+</section>
+}

@@ -1,0 +1,16 @@
+<div class="w-full md:w-1/2 mx-auto pt-10 overflow-y-hidden bg-slate-50">
+
+    <owl-carousel-o [options]="customStories">
+
+        @for (item of _stories; track $index) {
+        <ng-template carouselSlide>
+            <div class="w-20  text-center overflow-hidden ">
+                <img class="w-8 p-1 rounded-full border-2 border-red-600" [src]="item.img" alt="s">
+                <p>{{item.name}}</p>
+            </div>
+        </ng-template>
+
+        }
+    </owl-carousel-o>
+
+</div>

@@ -1,0 +1,14 @@
+<section>
+
+    <div class="flex items-center gap-x-2 px-2 ">
+        <input [(ngModel)]="contintComment" class="flex-grow border rounded-lg p-1 px-2" type="text"
+            placeholder="write comment ..">
+        <button type="submit" (click)="sendDataComment()" class="font-medium "> <i
+                class="fa-regular fa-paper-plane"></i>
+            @if (iscrated) {
+            <i class="fa-solid fa-spinner fa-spin px-2"></i>
+            }
+        </button>
+    </div>
+
+</section>

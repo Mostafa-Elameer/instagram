@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.input {
+    @apply w-full border-2 border-[#ff654d93] p-2 rounded-lg;
+}
+
+.btn {
+    @apply bg-[#d35542] text-white p-2 rounded-lg hover:bg-[#ff644d] w-1/2;
+}
+
+.link-Active {
+    background-color: #ff5944;
+    border-radius: 12%;
+    padding: 5px;
+    color: white;
+}

@@ -1,0 +1,152 @@
+<section class="regsiter w-10/12 mx-auto">
+
+    <div class="container mx-auto grid md:grid-cols-2 items-center justify-center p-5 shadow-sm overflow-hidden">
+
+        <div class="animate__animated  animate__fadeInRight">
+            <form [formGroup]="registerForm" class="bg-orange-50 rounded-3xl shadow-lg  w-full p-10 "
+                (ngSubmit)="registerBtn()">
+
+                <div class="name py-2">
+                    <input class="input " formControlName="name" type="text" placeholder="Your Name">
+
+                    @if (registerForm.get('name')?.errors &&registerForm.get('name')?.touched) {
+                    <div class="alert bg-red-400 rounded-xl p-1 mt-1 animate__animated  animate__zoomIn ">
+                        @if (registerForm.get("name")?.errors?.['required']) {
+                        <p class="px-2 text-center text-white font-bold">this input is required</p>
+                        }
+                        @else if (registerForm.get('name')?.errors?.['minlength']) {
+                        <p class="p-1 animate__animated text-white font-bold animate__bounceIn px-2">Your name must
+                            be at
+                            least 3 letters long
+                        </p>
+                        }
+
+                        @else if (registerForm.get('name')?.errors?.['maxlength']) {
+                        <p class="p-1 animate__animated text-white font-bold animate__bounceIn  px-2">It must not exceed
+                            20 characters</p>
+                        }
+
+                    </div>
+                    }
+
+                </div>
+
+                <div class="email py-1">
+                    <input class="input" formControlName="email" type="email" placeholder="Your email">
+
+                    @if (registerForm.get('email')?.errors &&registerForm.get('email')?.touched) {
+                    <div class="alert bg-red-400 rounded-xl p-1 mt-1 animate__animated  animate__zoomIn ">
+                        @if (registerForm.get("email")?.errors?.['required']) {
+                        <p class="px-2 text-center text-white font-bold">this input is required</p>
+                        }@else if (registerForm.get("email")?.errors?.['email']) {
+                        <p class="px-2 text-center text-white font-bold">this Email is unvalid</p>
+                        }
+
+                    </div>
+                    }
+
+                </div>
+
+
+                <div class="grid md:grid-cols-2 gap-2 py-2">
+                    <div class="password ">
+                        <input class="input" formControlName="password" type="text" placeholder="Your password">
+
+                        @if (registerForm.get('password')?.errors &&registerForm.get('password')?.touched) {
+                        <div class="alert bg-red-400 rounded-xl p-1 mt-1 animate__animated  animate__zoomIn ">
+                            @if (registerForm.get("password")?.errors?.['required']) {
+                            <p class="px-2 text-center text-white font-bold">this input is required</p>
+                            }@else if (registerForm.get("password")?.errors?.['pattern']) {
+                            <p class="px-2 text-center text-white font-bold">this password is unvalid</p>
+                            }
+                        </div>
+                        }
+
+                    </div>
+
+                    <div class="rePassword">
+                        <input class="input" formControlName="rePassword" type="text" placeholder="rePassword">
+
+                        @if (registerForm.get('rePassword')?.errors && registerForm.get('rePassword')?.touched) {
+                        <div class="alert bg-red-400 rounded-xl p-1 mt-1 animate__animated  animate__zoomIn ">
+                            @if (registerForm.get("rePassword")?.errors?.['required']) {
+                            <p class="px-2 text-center text-white font-bold">this input is required</p>
+                            }@else if (registerForm.get("password")?.errors?.['pattern']) {
+                            <p class="px-2 text-center text-white font-bold">this password is unvalid</p>
+                            }
+                        </div>
+                        }
+
+
+                    </div>
+
+                </div>
+
+                @if (registerForm.errors?.["pathMatch"] && registerForm.get("rePassword")?.touched ) {
+                <div class="alert bg-red-400 rounded-xl p-1 mt-1 animate__animated  animate__zoomIn ">
+                    <p class="px-2 text-center text-white font-bold"> password does not match</p>
+                </div>
+                }
+
+
+
+
+
+                <div class="gender flex items-center justify-evenly py-3">
+
+                    <p class="font-bold text-xl text-black opacity-70">gender : </p>
+
+                    <div class="border-2 border-orange-300 px-4 py-1 rounded-lg">
+                        <label for="male">meal </label>
+                        <input formControlName="gender" type="radio" name="gender" id="male" value="male">
+                    </div>
+
+                    <div class="border-2 border-orange-300 px-4 py-1 rounded-lg">
+                        <label for="fmale">fmale </label>
+                        <input formControlName="gender" type="radio" name="gender" id="fmale" value="fmale">
+                    </div>
+
+
+                </div>
+
+                <div class="date py-2">
+                    <input class="input" formControlName="dateOfBirth" type="date" placeholder="Your type">
+                </div>
+
+
+                @if(errorMessage){
+                <div class="bg-red-400 rounded-xl p-1 mt-1 animate__animated  animate__zoomIn">
+                    <p class="px-2 text-center text-white font-bold">{{errorMessage}}</p>
+                </div>
+
+                }
+
+
+                <div class="text-center py-2">
+                    <button [disabled]="registerForm.invalid||isloding" type="submit"
+                        class="btn disabled:bg-orange-400">Regigster
+                        @if (isloding) {
+                        <i class="fa-solid fa-spinner fa-spin px-2"></i>
+                        }
+                    </button>
+                </div>
+
+
+
+                <div class=" text-center">
+                    <a class="cursor-pointer">Do you already have an account ?</a>
+                </div>
+
+
+            </form>
+
+        </div>
+
+        <div class="animate__animated  animate__fadeInLeft">
+            <div><img class="p-16" src="./assets/imegs/auth/register.jpg" alt=""></div>
+        </div>
+
+
+    </div>
+
+</section>

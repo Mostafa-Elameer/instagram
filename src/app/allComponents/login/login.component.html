@@ -1,0 +1,82 @@
+<section class="regsiter w-10/12 mx-auto">
+
+    <div class="container mx-auto grid md:grid-cols-2 items-center justify-center p-5 shadow-sm overflow-hidden">
+
+
+        <div class="animate__animated  animate__fadeInRight">
+            <div><img class="p-16" src="./assets/imegs/auth/login.jpg" alt=""></div>
+        </div>
+
+
+        <div class="animate__animated  animate__fadeInLeft">
+            <form [formGroup]="loginForm" class="bg-orange-50 rounded-3xl shadow-lg  w-full p-10 "
+                (ngSubmit)="loginBtn()">
+
+
+
+                <div class="email py-1">
+                    <input class="input" formControlName="email" type="email" placeholder="Your email">
+
+                    @if (loginForm.get('email')?.errors &&loginForm.get('email')?.touched) {
+                    <div class="alert bg-red-400 rounded-xl p-1 mt-1 animate__animated  animate__zoomIn ">
+                        @if (loginForm.get("email")?.errors?.['required']) {
+                        <p class="px-2 text-center text-white font-bold">this input is required</p>
+                        }@else if (loginForm.get("email")?.errors?.['email']) {
+                        <p class="px-2 text-center text-white font-bold">this Email is unvalid</p>
+                        }
+                    </div>
+                    }
+
+                </div>
+
+
+                <div class="py-2">
+                    <div class="password ">
+                        <input class="input" formControlName="password" type="text" placeholder="Your password">
+
+                        @if (loginForm.get('password')?.errors &&loginForm.get('password')?.touched) {
+                        <div class="alert bg-red-400 rounded-xl p-1 mt-1 animate__animated  animate__zoomIn ">
+                            @if (loginForm.get("password")?.errors?.['required']) {
+                            <p class="px-2 text-center text-white font-bold">this input is required</p>
+                            }@else if (loginForm.get("password")?.errors?.['pattern']) {
+                            <p class="px-2 text-center text-white font-bold">this password is unvalid</p>
+                            }
+                        </div>
+                        }
+
+                    </div>
+
+
+
+                </div>
+
+                @if(errorMessage){
+                <div class="bg-red-400 rounded-xl p-1 mt-1 animate__animated  animate__zoomIn">
+                    <p class="px-2 text-center text-white font-bold">{{errorMessage}}</p>
+                </div>
+                }
+
+
+                <div class="text-center py-2">
+                    <button [disabled]="loginForm.invalid ||isloding" type="submit"
+                        class="btn disabled:bg-orange-400">signIN
+                        @if (isloding) {
+                        <i class="fa-solid fa-spinner fa-spin px-2"></i>
+                        }
+                    </button>
+                </div>
+
+                <div class=" text-center">
+                    <a class="cursor-pointer">Are yoe Forget Password ?</a>
+                </div>
+
+
+            </form>
+
+        </div>
+
+
+
+    </div>
+
+</section>

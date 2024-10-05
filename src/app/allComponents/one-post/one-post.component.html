@@ -1,0 +1,71 @@
+<div class="w-96 md:w-[45%]  md:mx-auto">
+
+
+    @if (_post) {
+    <div class="text-center flex justify-between w-full ">
+        <button class="p-2 font-medium " (click)="nextpage(_curntpage-1)">Previous page ?
+            @if (isRef) {
+            <i class="fa-solid fa-spinner fa-spin px-2"></i>
+            }
+        </button>
+
+        <button class="p-2 font-medium" (click)="nextpage(_curntpage+1)">Refreshes posts ?
+            @if (isRef) {
+            <i class="fa-solid fa-spinner fa-spin px-2"></i>
+            }
+        </button>
+    </div>
+    }
+
+    <div class=" ">
+        @for (item of _post; track $index) {
+        <div class="post my-3 border-b-2 pb-3 border px-1 rounded-lg overflow-hidden">
+            <!-- header-card  -->
+            <div class="header-card  flex justify-between bg-slate-100 items-center shadow-sm px-1 rounded-md">
+                <div class="flex items-center ">
+                    <img class="m-2 w-10 rounded-full" [src]="item.user.photo" alt="">
+                    <div class="flex flex-col justify-center ">
+                        <p class="m-0 font-medium">{{item.user.name}}</p>
+                        <p class="-mt-1">{{item.createdAt|date:'fullDate'}}</p>
+                    </div>
+                </div>
+                <i class="fa-solid fa-ellipsis px-1 font-bold"></i>
+            </div>
+            <!-- card body  -->
+            <div class="card-body w-full ">
+                <p class="py-2">{{item.body}}</p>
+
+                <img width="1450px" class=" rounded-md " [src]="item.image" alt="imgpost">
+
+            </div>
+
+            <!-- interaction card -->
+            <div class="flex justify-between pt-2 px-2">
+                <ul class="flex gap-x-3">
+                    <li><i class="text-2xl  fa-regular fa-heart hover:text-red-600 transition-all"></i></li>
+                    <li><i class="text-2xl  fa-regular fa-comment"></i></li>
+                    <li><i class="text-2xl  fa-brands fa-telegram"></i></li>
+                </ul>
+                <i class="fa-regular fa-bookmark text-2xl"></i>
+            </div>
+
+            <p #show class="cursor-pointer py-1 px-2
+             text-slate-500">View all comments ?
+                @if (view) {
+                <i class="fa-solid fa-spinner fa-spin px-2"></i>
+                }
+
+            </p>
+            @defer (on interaction(show)) {
+            <app-postcomments [idPostComments]="item._id"></app-postcomments>
+            }
+
+            <!-- crate comment -->
+            <app-createcomment [postid]="item.id"></app-createcomment>
+        </div>
+        }
+
+        <div class="text-center ">
+
+        </div>
+    </div>
