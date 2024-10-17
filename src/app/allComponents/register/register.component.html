@@ -58,7 +58,7 @@
                             <p class="px-2 text-center text-white font-bold">this input is required</p>
                             }@else if (registerForm.get("password")?.errors?.['pattern']) {
                             <p class="px-2 text-center text-white ">it must start with capital letter and contain a
-                                spiclal character</p>
+                                special character</p>
                             }
                         </div>
                         }
@@ -85,7 +85,7 @@
 
                 @if (registerForm.errors?.["pathMatch"] && registerForm.get("rePassword")?.touched ) {
                 <div class="alert bg-red-400 rounded-xl p-1 mt-1 animate__animated  animate__zoomIn ">
-                    <p class="px-2 text-center text-white font-bold"> password does not match</p>
+                    <p class="px-2 text-center text-white font-bold"> password doesn't match</p>
                 </div>
                 }
 
@@ -98,13 +98,13 @@
                     <p class="font-bold text-lg   md:text-xl text-black opacity-70">gender:</p>
 
                     <div class="border-1 border-orange-300 px-4 py-1 rounded-lg ">
-                        <label for="male">meal </label>
+                        <label for="male">male </label>
                         <input formControlName="gender" type="radio" name="gender" id="male" value="male">
                     </div>
 
                     <div class="border-1 border-orange-300 px-4 py-1 rounded-lg">
                         <label for="fmale">fmale </label>
-                        <input formControlName="gender" type="radio" name="gender" id="fmale" value="fmale">
+                        <input formControlName="gender" type="radio" name="gender" id="fmale" value="Female">
                     </div>
 
 
@@ -125,7 +125,7 @@
 
                 <div class="text-center py-2">
                     <button [disabled]="registerForm.invalid||isloding" type="submit"
-                        class="btn disabled:bg-orange-400">Regigster
+                        class="btn disabled:bg-orange-400">Register
                         @if (isloding) {
                         <i class="fa-solid fa-spinner fa-spin px-2"></i>
                         }
