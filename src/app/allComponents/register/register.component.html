@@ -1,9 +1,9 @@
-<section class="regsiter w-10/12 mx-auto">
+<section class="regsiter w-11/12 mx-auto">
 
     <div class="container mx-auto grid md:grid-cols-2 items-center justify-center p-5 shadow-sm overflow-hidden">
 
         <div class="animate__animated  animate__fadeInRight">
-            <form [formGroup]="registerForm" class="bg-orange-50 rounded-3xl shadow-lg  w-full p-10 "
+            <form [formGroup]="registerForm" class="bg-orange-50 rounded-3xl shadow-lg  w-full p-5  md:p-10 "
                 (ngSubmit)="registerBtn()">
 
                 <div class="name py-2">
@@ -48,16 +48,17 @@
                 </div>
 
 
-                <div class="grid md:grid-cols-2 gap-2 py-2">
+                <div class="grid md:grid-cols-1 gap-2 py-2">
                     <div class="password ">
-                        <input class="input" formControlName="password" type="text" placeholder="Your password">
+                        <input class="input" formControlName="password" type="password" placeholder="Your password">
 
                         @if (registerForm.get('password')?.errors &&registerForm.get('password')?.touched) {
                         <div class="alert bg-red-400 rounded-xl p-1 mt-1 animate__animated  animate__zoomIn ">
                             @if (registerForm.get("password")?.errors?.['required']) {
                             <p class="px-2 text-center text-white font-bold">this input is required</p>
                             }@else if (registerForm.get("password")?.errors?.['pattern']) {
-                            <p class="px-2 text-center text-white font-bold">this password is unvalid</p>
+                            <p class="px-2 text-center text-white ">it must start with capital letter and contain a
+                                spiclal character</p>
                             }
                         </div>
                         }
@@ -65,7 +66,7 @@
                     </div>
 
                     <div class="rePassword">
-                        <input class="input" formControlName="rePassword" type="text" placeholder="rePassword">
+                        <input class="input" formControlName="rePassword" type="password" placeholder="rePassword">
 
                         @if (registerForm.get('rePassword')?.errors && registerForm.get('rePassword')?.touched) {
                         <div class="alert bg-red-400 rounded-xl p-1 mt-1 animate__animated  animate__zoomIn ">
@@ -94,14 +95,14 @@
 
                 <div class="gender flex items-center justify-evenly py-3">
 
-                    <p class="font-bold text-xl text-black opacity-70">gender : </p>
+                    <p class="font-bold text-lg   md:text-xl text-black opacity-70">gender:</p>
 
-                    <div class="border-2 border-orange-300 px-4 py-1 rounded-lg">
+                    <div class="border-1 border-orange-300 px-4 py-1 rounded-lg ">
                         <label for="male">meal </label>
                         <input formControlName="gender" type="radio" name="gender" id="male" value="male">
                     </div>
 
-                    <div class="border-2 border-orange-300 px-4 py-1 rounded-lg">
+                    <div class="border-1 border-orange-300 px-4 py-1 rounded-lg">
                         <label for="fmale">fmale </label>
                         <input formControlName="gender" type="radio" name="gender" id="fmale" value="fmale">
                     </div>

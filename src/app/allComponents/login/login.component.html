@@ -1,4 +1,4 @@
-<section class="regsiter w-10/12 mx-auto">
+<section class="regsiter w-11/12 mx-auto">
 
     <div class="container mx-auto grid md:grid-cols-2 items-center justify-center p-5 shadow-sm overflow-hidden">
 
@@ -9,7 +9,7 @@
 
 
         <div class="animate__animated  animate__fadeInLeft">
-            <form [formGroup]="loginForm" class="bg-orange-50 rounded-3xl shadow-lg  w-full p-10 "
+            <form [formGroup]="loginForm" class="bg-orange-50 rounded-3xl shadow-lg  w-full p-5  md:p-10 "
                 (ngSubmit)="loginBtn()">
 
 
@@ -32,7 +32,7 @@
 
                 <div class="py-2">
                     <div class="password ">
-                        <input class="input" formControlName="password" type="text" placeholder="Your password">
+                        <input class="input" formControlName="password" type="password" placeholder="Your password">
 
                         @if (loginForm.get('password')?.errors &&loginForm.get('password')?.touched) {
                         <div class="alert bg-red-400 rounded-xl p-1 mt-1 animate__animated  animate__zoomIn ">

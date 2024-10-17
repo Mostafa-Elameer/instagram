@@ -42,6 +42,8 @@ export class StoriesComponent {
     this._FackusersService.gitStories().subscribe({
       next: (res) => {
         this._stories = res.users
+
+        console.log(res);
       }
     })
   }

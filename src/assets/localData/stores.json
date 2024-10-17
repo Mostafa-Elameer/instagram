@@ -1,0 +1,56 @@
+{
+    "users": [
+        {
+            "name": "mostafa",
+            "img": "./../../assets/imegs/profile.jpg"
+        },
+        {
+            "name": "Ahmed",
+            "img": "./../../assets/imegs/stories/bahnsy.jpg"
+        },
+        {
+            "name": "Al-MuȜti",
+            "img": "./../../assets/imegs/stories/mo3ty.jpg"
+        },
+        {
+            "name": "Menissy",
+            "img": "./../../assets/imegs/stories/menisy.jpg"
+        },
+        {
+            "name": "Ahmed",
+            "img": "./../../assets/imegs/stories/nasr.jpg"
+        },
+        {
+            "name": "mohamed",
+            "img": "./../../assets/imegs/stories/nabile.jpg"
+        },
+        {
+            "name": "Nourhan",
+            "img": "./../../assets/imegs/stories/noor.jpg"
+        },
+        {
+            "name": "Basma ",
+            "img": "./../../assets/imegs/stories/basma.jpg"
+        },
+        {
+            "name": "Ibrahim",
+            "img": "./../../assets/imegs/stories/ibrahim.jpg"
+        },
+        {
+            "name": "Yousef",
+            "img": "./../../assets/imegs/stories/jo.jpg"
+        },
+        {
+            "name": "mohamed",
+            "img": "./../../assets/imegs/stories/elasaidy.jpg"
+        },
+        {
+            "name": "Heba",
+            "img": "./../../assets/imegs/stories/heba.jpg"
+        },
+        {
+            "name": "Malk",
+            "img": "./../../assets/imegs/stories/malak.jpg"
+        }
+    ]
+}

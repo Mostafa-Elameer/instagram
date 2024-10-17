@@ -8,7 +8,7 @@ import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-search',
   standalone: true,
-  imports: [FormsModule, SearchPipe , RouterLink],
+  imports: [FormsModule, SearchPipe, RouterLink],
   templateUrl: './search.component.html',
   styleUrl: './search.component.scss'
 })
